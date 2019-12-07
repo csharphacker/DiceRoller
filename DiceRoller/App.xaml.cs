@@ -1,7 +1,9 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using MediatR;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System;
+using System.Reflection;
 using System.Windows;
 
 namespace DiceRoller
@@ -28,7 +30,12 @@ namespace DiceRoller
 
         private void ConfigureServices(IConfiguration configuration, IServiceCollection services)
         {
+            var assembly = Assembly.GetAssembly(this.GetType());
+
             services.AddSingleton<MainWindow>();
+            services.AddSingleton<Random>();
+
+            services.AddMediatR(assembly);
         }
 
         protected override async void OnStartup(StartupEventArgs e)

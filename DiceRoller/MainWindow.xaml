@@ -14,9 +14,8 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        <Rectangle Grid.Row="0" Grid.Column="0" Fill="Red"/>
-        <Rectangle Grid.Row="0" Grid.Column="1" Fill="DarkSlateGray"/>
-        <Button x:Name="button" Content="Button" Click="button_Click"/>
+        <Button x:Name="roll" Content="Roll" Click="roll_Click"/>
+        <TextBox x:Name="output" Grid.Row="0" Grid.Column="1" TextWrapping="Wrap" ScrollViewer.VerticalScrollBarVisibility="Visible"/>
     </Grid>
     
 </Window>
