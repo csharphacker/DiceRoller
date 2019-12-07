@@ -6,7 +6,16 @@
         xmlns:local="clr-namespace:DiceRoller"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-
+    <Grid Name="Contents" Margin="4">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Button x:Name="roll" Content="Roll" Click="roll_Click"/>
+        <TextBox x:Name="output" Grid.Row="0" Grid.Column="1" TextWrapping="Wrap" ScrollViewer.VerticalScrollBarVisibility="Visible"/>
     </Grid>
+    
 </Window>

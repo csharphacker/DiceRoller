@@ -1,17 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using DiceRoller.Models;
+using DiceRoller.Services.Rolling;
+using MediatR;
+using Microsoft.Extensions.Logging;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace DiceRoller
 {
@@ -20,9 +11,33 @@ namespace DiceRoller
     /// </summary>
     public partial class MainWindow : Window
     {
-        public MainWindow()
+        private readonly ILogger<MainWindow> logger;
+        private readonly IMediator mediator;
+
+        public MainWindow(ILogger<MainWindow> logger, IMediator mediator)
         {
+            // this logging component isn't created with a 'new', it's injected
+            // by the host, which allows us a lot of freedom and reduces coupling
+            this.logger = logger;
+            this.mediator = mediator;
+
             InitializeComponent();
+        }
+
+        private async void roll_Click(object sender, RoutedEventArgs e)
+        {
+            var result = await mediator.Send(new RollDieRequest { Die = new SixSidedDie() });
+
+            logger.LogDebug("User clicked the roll button");
+
+            if(result != null)
+            {
+                output.Text += $"We rolled a {result.Die.NumberOfSides} sided die, with a result of { result.Value }\n";
+            }
+            else
+            {
+                MessageBox.Show("There was an error rolling the die, please see the logs");
+            }
         }
     }
 }
