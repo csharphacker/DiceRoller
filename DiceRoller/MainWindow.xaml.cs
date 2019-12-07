@@ -1,17 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Microsoft.Extensions.Logging;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace DiceRoller
 {
@@ -20,9 +8,23 @@ namespace DiceRoller
     /// </summary>
     public partial class MainWindow : Window
     {
-        public MainWindow()
+        private readonly ILogger<MainWindow> logger;
+
+        public MainWindow(ILogger<MainWindow> logger)
         {
+            // this logging component isn't created with a 'new', it's injected
+            // by the host, which allows us a lot of freedom and reduces coupling
+            this.logger = logger;
+
             InitializeComponent();
+        }
+
+        private void button_Click(object sender, RoutedEventArgs e)
+        {
+            // if you enable the output window (View > Output) when you run you will see that
+            // you are getting an information message logged, which proves
+            // that the dependancy injection is working
+            logger.LogInformation("button clicked");
         }
     }
 }

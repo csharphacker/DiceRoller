@@ -6,7 +6,17 @@
         xmlns:local="clr-namespace:DiceRoller"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-
+    <Grid Name="Contents" Margin="4">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Rectangle Grid.Row="0" Grid.Column="0" Fill="Red"/>
+        <Rectangle Grid.Row="0" Grid.Column="1" Fill="DarkSlateGray"/>
+        <Button x:Name="button" Content="Button" Click="button_Click"/>
     </Grid>
+    
 </Window>
