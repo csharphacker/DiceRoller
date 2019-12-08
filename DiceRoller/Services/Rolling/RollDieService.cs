@@ -26,7 +26,7 @@ namespace DiceRoller.Services.Rolling
 
             try
             {
-                result = new ResultOfRoll(request.Die, random.Next(1, request.Die.NumberOfSides));
+                result = new ResultOfRoll(request.Die, random.Next(1, request.Die.NumberOfSides + 1));
 
                 logger.LogDebug($"Completed rolling a {result.Die.NumberOfSides} sided die, resulting in a value of {result.Value}");
             }
