@@ -8,14 +8,43 @@
         Title="MainWindow" Height="450" Width="800">
     <Grid Name="Contents" Margin="4">
         <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20" />
             <ColumnDefinition Width="100" />
+            <ColumnDefinition Width="20" />
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
             <RowDefinition Height="*" />
+            <RowDefinition Height="50" />
         </Grid.RowDefinitions>
-        <Button x:Name="roll" Content="Roll" Click="roll_Click"/>
-        <TextBox x:Name="output" Grid.Row="0" Grid.Column="1" TextWrapping="Wrap" ScrollViewer.VerticalScrollBarVisibility="Visible"/>
+        <TextBlock Grid.Column="1" x:Name="D4" Text="D4" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" />
+        <Button x:Name="subD4" Content="-" FontWeight="ExtraBold" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Button Grid.Column="2"  x:Name="addD4" Content="+" FontWeight="ExtraBold" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <TextBlock Grid.Row="1" Grid.Column="1" x:Name="D6" Text="D6" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Button Grid.Row="1" x:Name="subD6" Content="-" FontWeight="ExtraBold" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Button Grid.Row="1" Grid.Column="2"  x:Name="addD6" Content="+" FontWeight="ExtraBold" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <TextBlock Grid.Row="2" Grid.Column="1" x:Name="D8" Text="D8" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" />
+        <Button Grid.Row="2" x:Name="subD8" Content="-" FontWeight="ExtraBold" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Button Grid.Row="2" Grid.Column="2"  x:Name="addD8" Content="+" FontWeight="ExtraBold" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <TextBlock Grid.Row="3" Grid.Column="1" x:Name="D10" Text="D10" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" />
+        <Button Grid.Row="3" x:Name="subD10" Content="-" FontWeight="ExtraBold" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Button Grid.Row="3" Grid.Column="2"  x:Name="addD10" Content="+" FontWeight="ExtraBold" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <TextBlock Grid.Row="4" Grid.Column="1" x:Name="D12" Text="D12" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" />
+        <Button Grid.Row="4" x:Name="subD12" Content="-" FontWeight="ExtraBold" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Button Grid.Row="4" Grid.Column="2"  x:Name="addD12" Content="+" FontWeight="ExtraBold" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <TextBlock Grid.Row="5" Grid.Column="1" x:Name="D20" Text="D20" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" />
+        <Button Grid.Row="5" x:Name="subD20" Content="-" FontWeight="ExtraBold" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Button Grid.Row="5" Grid.Column="2"  x:Name="addD20" Content="+" FontWeight="ExtraBold" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <TextBlock Grid.Row="6" Grid.Column="1" x:Name="CoinToss" Text="Coin Toss" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" />
+        <Button Grid.Row="8" Grid.Column="1" x:Name="roll" Content="Roll Now" Click="roll_Click"/>
+        <TextBox x:Name="output" Grid.RowSpan="9" Grid.Column="4" TextWrapping="Wrap" ScrollViewer.VerticalScrollBarVisibility="Visible"/>
     </Grid>
-    
+
 </Window>
